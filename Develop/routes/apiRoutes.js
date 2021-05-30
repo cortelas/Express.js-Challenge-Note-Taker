@@ -9,7 +9,19 @@ router.get("/api/notes", (req, res) => {
 
 //posts the notes to db
 router.post("/api/notes", (req, res) => {
-    res.json(notes);
+    const storedNotes = req.body;
+
+    fs.readFile("../db/db", (err, data) => {
+        dbData = JSON.parse(data);
+        dbData.push(storedNotes);
+        let num = 1;
+        dbData.forEach((note, index) => {
+            note.id = num;
+            num++
+            return dbData;
+        });
+        dataString = JSON.stringify(dbData);
+    });
 });
 
 
