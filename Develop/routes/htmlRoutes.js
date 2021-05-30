@@ -6,3 +6,6 @@ router.get("/notes", (req, res) => {
 });
 
 //gets index
+router.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname,"../public/index.html"))
+});
