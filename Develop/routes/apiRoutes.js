@@ -11,7 +11,7 @@ router.get("/api/notes", (req, res) => {
     })
 });
 
-//posts the notes to db
+//posts the notes to db using fs
 router.post("/api/notes", (req, res) => {
     const storedNotes = req.body;
 
